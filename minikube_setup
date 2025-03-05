@@ -5,7 +5,7 @@ sudo apt install -y curl wget apt-transport-https conntrack
 install docker:
 sudo apt install -y docker.io
 sudo systemctl enable --now docker
-chmod 777 /var/run/docker.sock
+sudo chmod 777 /var/run/docker.sock
 
 Step 2: Install Kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
