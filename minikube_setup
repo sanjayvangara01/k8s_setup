@@ -1,0 +1,25 @@
+Step 1: Install Dependencies
+sudo apt update -y
+sudo apt install -y curl wget apt-transport-https conntrack
+
+install docker:
+sudo apt install -y docker.io
+sudo systemctl enable --now docker
+chmod 777 /var/run/docker.sock
+
+Step 2: Install Kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+
+Step 3: Install Minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+Step 4: Start Minikube
+minikube start --driver=docker
+
+(NOTE: use in command ubuntu user)
+
+Step 5: Verify Installation
+kubectl get nodes
